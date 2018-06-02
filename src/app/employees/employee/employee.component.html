@@ -1,3 +1,29 @@
-<p>
-  employee works!
-</p>
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Full Name" required>
+    <!-- employeeService is constructorm object passed to employee component. Refer employee.component.ts -->
+    <!-- selectedEmployee is variable created to store curent employee. Reger employee.sercice.ts -->
+    <br />
+    <label>Position</label>
+    <input class="form-control" name="position" #position="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Position" required>
+    <br />
+    <label>Office</label>
+    <input class="form-control" name="office" #office="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Office" required>
+    <br />
+    <label>Salary</label>
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class="fa fa-dollar"></i>
+      </div>
+      <input class="form-control" name="salary" #salary="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Salary" required>
+    </div>
+  </div>
+  <br />
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!employeeForm.valid">
+     <i class="fa fa-floppy-o"></i> Submit
+    </button>
+    <button class="btn btn-default" type="button" (click)="resetForm(employeeForm)"><i class="fa fa-repeat"></i> Reset</button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+STEPS TO FOLLOW
+
+--Create new project using angulkar cli
+--create firebase account and add new project
+--add npm packages for firebase
+    npm install firebase@4.6.1 angularfire2@5.0.0-rc.3 --save
+
+--in app.module.ts
+    import two module
+        import { AngularFireDatabaseModule } from 'angularfire2/database';
+        import { AppComponent } from './app.component'; 
+
+-- in firebase, click on add db to web app. 
+    copy code of config and paste into environment.ts
+
+--in app.module.ts
+    import environment
+    and add AngularFireModule.initializeApp(environment.firebaseCOnfig) in imports:[]
+
+--in firebase-> left menu-develop->database->real time database
+    change rules permission to read->true and write->true
